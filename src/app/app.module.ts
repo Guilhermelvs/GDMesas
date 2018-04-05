@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { ControleComponent } from './controle/controle.component';
 import { GraficosComponent } from './graficos/graficos.component';
 import { PainelComponent } from './painel/painel.component';
-
+import { routing } from './app.routing';
 
 @NgModule({
   declarations: [
@@ -17,6 +17,7 @@ import { PainelComponent } from './painel/painel.component';
   ],
   imports: [
     BrowserModule
+    routing
   ],
   providers: [],
   bootstrap: [AppComponent]
