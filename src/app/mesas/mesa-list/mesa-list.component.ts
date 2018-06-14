@@ -9,28 +9,34 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./mesa-list.component.css']
 })
 export class MesaListComponent implements OnInit {
-  mesaList: Mesa[];
-  constructor(private MesaService: MesaService, private tostr: ToastrService) { }
+  mesaList = [];
+  constructor(private mesaService: MesaService, private tostr: ToastrService) { }
 
   ngOnInit() {
-    var x = this.MesaService.getData();
+    
+  }
+
+  onEdit(emp: Mesa) {
+    this.mesaService.selectedmesa = Object.assign({}, emp);
+  }
+
+  getData(){
+    let x = this.mesaService.getData();
+    console.log('aqui');
     x.snapshotChanges().subscribe(item => {
-      this.mesaList = [];
       item.forEach(element => {
-       // var y = element.payload.toJSON();
-       // y["$key"] = element.key;
-      //this.mesaList.push(y as Mesa);
+        let y = element.payload.toJSON();
+        y["$key"] = element.key;
+        console.log(y);
+        this.mesaList.push(y);
       });
     });
   }
 
-  onEdit(emp: Mesa) {
-    this.MesaService.selectedmesa = Object.assign({}, emp);
-  }
 
   onDelete(key: string) {
     if (confirm('Are you sure to delete this record ?') == true) {
-      this.MesaService.deletemesa(key);
+      this.mesaService.deletemesa(key);
       this.tostr.warning("Deleted Successfully", "Mesa register");
     }
   }

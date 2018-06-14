@@ -10,7 +10,9 @@ import { NgForm } from '@angular/forms';
 })
 export class MesaComponent implements OnInit {
 
-  constructor(private MesaService: MesaService, private tostr: ToastrService) { }
+ 
+
+  constructor(private mesaService: MesaService, private tostr: ToastrService) { }
 
   ngOnInit() {
     this.resetForm();
@@ -18,9 +20,9 @@ export class MesaComponent implements OnInit {
 
   onSubmit(mesaForm: NgForm) {
     if (mesaForm.value.$key == null)
-      this.MesaService.insertmesa(mesaForm.value);
+      this.mesaService.insertmesa(mesaForm.value);
     else
-      this.MesaService.updatemesa(mesaForm.value);
+      this.mesaService.updatemesa(mesaForm.value);
     this.resetForm(mesaForm);
     this.tostr.success('Submitted Succcessfully', 'Mesa Registrada');
   }
@@ -28,11 +30,11 @@ export class MesaComponent implements OnInit {
   resetForm(mesaForm?: NgForm) {
     if (mesaForm != null)
       mesaForm.reset();
-    this.MesaService.selectedmesa = {
+    this.mesaService.selectedmesa = {
       $key: null,
       local: '',
       status: '',
-      cadeiras: 67,
+      cadeiras: '',
     }
   }
 

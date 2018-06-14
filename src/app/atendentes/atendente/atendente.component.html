@@ -1,4 +1,5 @@
 <form #atendenteForm="ngForm" (ngSubmit)="onSubmit(atendenteForm)">
+<!--<form atendenteForm="ngForm" (ngSubmit)="f.valid && recommend(f.value, f.valid)" #atendenteForm="ngForm" novalidate>-->
     <input type="hidden" name="$id_atendente" #$id_atendente="ngModel" [(ngModel)]="atendentesService.selectedatendentes.$id_atendente">
   <div class="form-group">
     <label>Nome</label>
@@ -6,7 +7,7 @@
   </div>
   <div class="form-group">
       <label>Matricula</label>
-      <input class="form-control" name="matricula_atendente" #matricula_atendente="ngModel" [(ngModel)]="atendentesService.selectedatendentes.matricula_atendente" placeholder="Numero da matricula" required>
+      <input class="form-control" type="text" name="matricula_atendente" #matricula_atendente="ngModel" [(ngModel)]="atendentesService.selectedatendentes.matricula_atendente" placeholder="Numero da matricula" required>
     </div>
     <div class="form-group">
         <button class="btn btn-default" type="submit" [disabled]="!mesaForm.valid">

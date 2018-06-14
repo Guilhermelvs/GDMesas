@@ -31,7 +31,7 @@ export class AtendenteComponent implements OnInit {
     this.atendentesService.selectedatendentes = {
       $id_atendente: '',
       nome_atendente: '',
-      matricula_atendente: 67,
+      matricula_atendente: '',
     }
   }
 

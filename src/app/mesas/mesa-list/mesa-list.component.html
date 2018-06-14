@@ -1,8 +1,8 @@
 <h2 class="text-center">Mesas Cadastradas</h2><br/>
 <table class="table table-sm table-hover">
-  <tr *ngFor="let employee of employeeList">
-      <td>{{Mesa.name}}</td>
-      <td>{{Mesa.position}}</td>
+  <tr *ngFor="let mesa of mesaList">
+      <td>{{mesa.local}}</td>
+      <td>{{mesa.status}}</td>
       <td>
         <a class="btn" (click)="onEdit(mesa)">
           <i class="fa fa-pencil-square-o"></i>
@@ -13,3 +13,4 @@
       </td>
   </tr>
 </table>
+<button (click)="getData()">teste</button>

@@ -1,5 +1,5 @@
 export class Atendentes {
     $id_atendente : string;
-    matricula_atendente : number;
-    nome_atendente : number;
+    matricula_atendente : string;
+    nome_atendente : string;
 }
