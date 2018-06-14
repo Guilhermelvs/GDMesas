@@ -1,15 +1,4 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <ul>
-        <div *ngFor="let course of coursesObservable | async">
-            <ngb-alert type="info" [dismissible]="false">
-                <h3><a href="#">Beatriz</a> </h3>
-                <p>Cara de xoxeta</p>
-                <div>
-                    <a href="{{course.url}}" target="_blank" class="btn btn-danger">Hello word</a>
-                </div>
-            </ngb-alert> 
-        </div>
-      </ul>
     <a class="navbar-brand" href="index.html">GDMesas</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -22,6 +11,20 @@
             <span class="nav-link-text">Painel</span>
           </a>
         </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Controle">
+            <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+              <i class="fa fa-fw fa-wrench"></i>
+              <span class="nav-link-text">Controle</span>
+            </a>
+            <ul class="sidenav-second-level collapse" id="collapseComponents">
+              <li>
+                <a href="http://localhost:4200/mesas">Mesas</a>
+              </li>
+              <li>
+                <a href="http://localhost:4200/atendentes">Atendentes</a>
+              </li>
+            </ul>
+          </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
           <a class="nav-link" href="http://localhost:4200/mesas">
             <i class="fa fa-fw fa-area-chart"></i>
@@ -43,21 +46,33 @@
         </li>
       </ul>
     </div>
+    <li class="nav-item">
+        <form class="form-inline my-2 my-lg-0 mr-lg-2">
+          <div class="input-group">
+            <input class="form-control" type="text" placeholder="Buscar Por...">
+            <span class="input-group-append">
+              <button class="btn btn-primary" type="button">
+                <i class="fa fa-search"></i>
+              </button>
+            </span>
+          </div>
+        </form>
+      </li>
   </nav>
   <div class="content-wrapper">
     <div class="container-fluid">
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-          <a href="#"></a>
-        </li>
-        <li class="breadcrumb-item active"></li>
-      </ol>
+          <li class="breadcrumb-item">
+            <a href="#"></a>
+          </li>
+          <li class="breadcrumb-item active"></li>
+        </ol>
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
           <a>GDMesas</a>
         </li>
-        <li class="breadcrumb-item active">O Melhor sistema para controle de restaurantes</li>
+        <li class="breadcrumb-item active">Sistema de controle para restaurantes</li>
       </ol>
       <!-- Icon Cards-->
       <div class="row">
@@ -69,7 +84,7 @@
               </div>
               <div class="mr-5">Disponíveis</div>
             </div>
-            <a class="card-footer text-white clearfix small z-1" href="#">
+            <a class="card-footer text-white clearfix small z-1" href="http://localhost:4200/mesas">
               <span class="float-left">Ver detalhes</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
@@ -81,11 +96,11 @@
           <div class="card text-white bg-danger o-hidden h-100">
             <div class="card-body">
               <div class="card-body-icon">
-                <i class="fa fa-fw fa-support"></i>
+                <i class="fa fa fa-fw fa-list"></i>
               </div>
               <div class="mr-5">Ocupadas</div>
             </div>
-            <a class="card-footer text-white clearfix small z-1" href="#">
+            <a class="card-footer text-white clearfix small z-1" href="http://localhost:4200/mesas">
               <span class="float-left">Ver detalhes</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
@@ -97,11 +112,11 @@
           <div class="card text-white bg-warning o-hidden h-100">
             <div class="card-body">
               <div class="card-body-icon">
-                <i class="fa fa-fw fa-comments"></i>
+                <i class="fa fa-fw fa-list"></i>
               </div>
               <div class="mr-5">Reservadas</div>
             </div>
-            <a class="card-footer text-white clearfix small z-1" href="#">
+            <a class="card-footer text-white clearfix small z-1" href="http://localhost:4200/mesas">
               <span class="float-left">Ver detalhes</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
@@ -113,11 +128,11 @@
           <div class="card text-white bg-primary o-hidden h-100">
             <div class="card-body">
               <div class="card-body-icon">
-                <i class="text-warning"></i>
+                <i class="fa fa-fw fa-list"></i>
               </div>
-              <div class="mr-5">Garçom/Atendente</div>
+              <div class="mr-5">Atendentes</div>
             </div>
-            <a class="card-footer text-white clearfix small z-1" href="#">
+            <a class="card-footer text-white clearfix small z-1" href="http://localhost:4200/atendentes">
               <span class="float-left">Ver detalhes</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
@@ -128,28 +143,65 @@
       </div>
       <div class="row">
       </div>
+      <div class="col-lg-15">
+      			<!--COMENTARIOS -->
+		  <div class="card mb-5">
+          <div class="card-header">
+            <i class="fa fa-bell-o"></i>Feed</div>
+          <div class="list-group list-group-flush small">
+     <a class="list-group-item list-group-item-action" href="#">                
+      <div class="media">
+                <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
+                <div class="media-body">
+                  <strong>Raquel</strong> Bellíssimas, vcs vão adorar!
+                  <strong>Você mais Bela - Blog's</strong>.
+                  <div class="text-muted smaller"> Hoje às 5:43 PM - 18hr atrás </div>
+                </div>
+              </div>				
+            </a>
+      <!--COMENTARIOS -->
+            <a class="list-group-item list-group-item-action" href="#">
+              <div class="media">
+                <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
+                <div class="media-body">
+                  <strong>José Diego</strong> Muito Top! O café é incrivel!
+                  <div class="text-muted smaller">Hoje às 14:30 PM - 6hr atrás</div>
+                </div>
+              </div>
+            </a>
+      <!--COMENTARIOS -->
+            <a class="list-group-item list-group-item-action" href="#">
+              <div class="media">
+                <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
+                <div class="media-body">
+                  <strong>Beatriz Castro</strong> Adorei o restaurante! Perfeito para negócios. ^^
+                  <strong>#Cafécomochefe #mvete</strong>.
+                  <div class="text-muted smaller">Hoje às 20:31 PM - 30m atrás</div>
+                </div>
+              </div>
+            </a>
+      <!--COMENTARIOS -->
+            <a class="list-group-item list-group-item-action" href="#">
+              <div class="media">
+                <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
+                <div class="media-body">
+                  <i class="fa fa-code-fork"></i>
+                  <strong>José Matheus</strong> Restaurante gera! cheio de novinhas :3
+                  <strong>#tosolteiroepáh</strong>
+                  <strong>#chegapapai</strong>.
+                  <div class="text-muted smaller">Hoje às 18:54 PM - 2hrs atrás</div>
+                </div>
+              </div>
+            </a>			   
+      <a class="list-group-item list-group-item-action" href="#">Ver mais atividades...</a>
+     </div>
+    <div class="card-footer small text-muted">Atualizado Hoje às 21:09hr</div>
+        </div>
+      </div>
     </div>
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>
-    <!-- Logout Modal-->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
-          </div>
-          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-          <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="login.html">Logout</a>
-          </div>
-        </div>
-      </div>
-    </div>
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

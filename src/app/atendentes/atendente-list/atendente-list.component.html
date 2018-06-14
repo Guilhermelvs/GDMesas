@@ -1,0 +1,15 @@
+<h6 class="text-center">Atendente Registrado</h6><br/>
+<table class="table table-sm table-hover">
+  <tr *ngFor="let atendente of atendenteList">
+      <td>{{atendente.nome_atendente}}</td>
+      <td>{{atendente.matricula_atendente}}</td>
+      <td>
+        <a class="btn" (click)="onEdit(atendente)">
+          <i class="fa fa-pencil-square-o"></i>
+        </a>
+        <a class="btn" (click)="onDelete(atendente.$id_atendente)">
+          <i class="fa fa-trash-o"></i>
+        </a>
+      </td>
+  </tr>
+</table>

@@ -1,0 +1,19 @@
+<form #atendenteForm="ngForm" (ngSubmit)="onSubmit(atendenteForm)">
+    <input type="hidden" name="$id_atendente" #$id_atendente="ngModel" [(ngModel)]="atendentesService.selectedatendentes.$id_atendente">
+  <div class="form-group">
+    <label>Nome</label>
+    <input class="form-control" name="nome_atendente" #nome_atendente="ngModel" [(ngModel)]="atendentesService.selectedatendentes.nome_atendente" placeholder="Nome do Atendente" required>
+  </div>
+  <div class="form-group">
+      <label>Matricula</label>
+      <input class="form-control" name="matricula_atendente" #matricula_atendente="ngModel" [(ngModel)]="atendentesService.selectedatendentes.matricula_atendente" placeholder="Mtricula Atendente">
+    </div>
+  <div class="form-group">
+    <button class="btn btn-default" type="submit" [disabled]="!mesaForm.valid">
+      <i class="fa fa-floppy-o"></i>
+       Submit</button>
+    <button class="btn btn-default" type="button" (click)="resetForm(mesaForm)">
+      <i class="fa fa-repeat"></i>
+       Reset</button>
+  </div>
+  </form>

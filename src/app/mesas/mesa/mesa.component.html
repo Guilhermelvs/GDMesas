@@ -1,0 +1,28 @@
+<form #mesaForm="ngForm" (ngSubmit)="onSubmit(mesaForm)">
+  <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="MesaService.selectedmesa.$key">
+<div class="form-group">
+  <label>Local</label>
+  <input class="form-control" name="local" #Local="ngModel" [(ngModel)]="MesaService.selectedmesa.Local" placeholder="Localização da Mesa" required>
+</div>
+<div class="form-group">
+  <label>Status</label>
+  <input class="form-control" name="status" #status="ngModel" [(ngModel)]="MesaService.selectedmesa.status" placeholder="status">
+</div>
+<div class="form-group">
+  <label>Cadeiras</label>
+  <div class="input-group">
+      <div class="input-group-addon">
+        <i class="fa fa-dollar"></i>
+      </div>
+      <input class="form-control" name="cadeiras" #cadeiras="ngModel" [(ngModel)]="MesaService.selectedmesa.cadeiras" placeholder="Quantidade">
+  </div>
+</div>
+<div class="form-group">
+  <button class="btn btn-default" type="submit" [disabled]="!mesaForm.valid">
+    <i class="fa fa-floppy-o"></i>
+     Submit</button>
+  <button class="btn btn-default" type="button" (click)="resetForm(mesaForm)">
+    <i class="fa fa-repeat"></i>
+     Reset</button>
+</div>
+</form>
